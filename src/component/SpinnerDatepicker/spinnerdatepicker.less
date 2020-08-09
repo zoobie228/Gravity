@@ -1,0 +1,158 @@
+.modal {
+    &.in{
+        padding-left: 0 !important;
+    }
+    &.fade .spinner-modal {
+        .translate(-50%, 25%) !important;
+      }
+    &.in .spinner-modal {
+    .translate(-50%, 0) !important;
+    }
+}
+.design2-modal.modal-dialog.spinner-modal{
+    width: 100vw;
+    top: ~'calc(100vh - 285px)';
+    .modal-header{
+        background-color: @LIN;
+        padding: 11px 20px;
+    }
+    .modal-body{
+        padding: 15px 0;
+    }
+    .cancel{
+        color: #999999;
+        font-size: 16px;
+    }
+    .done{
+        font-size: 16px;
+        float: right;
+        color: #007aff;
+    }
+}
+.design2-spinner-input{
+    position: relative;
+    display: inline-block;
+    padding-right: 44px;
+    width: 296px;
+    .input{
+        width: 100%;
+        height: 44px;
+        padding-left: 12px;
+        font-family: DINNextLTPro, dinnext;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        outline: 0;
+        border: 1px solid @KIT;
+        &.input-border-color:focus{
+            border: 1px solid @CAL;
+        }
+    }
+    .input:disabled{
+        font-family: DINNextLTPro, dinnext;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;  
+        background: @IAN;
+        color: #AAAAAA;
+      }
+    .input::placeholder{
+        font-family: DINNextLTPro, dinnext;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: italic;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #AAAAAA;
+    }
+    .input::-moz-placeholder{  
+        line-height: 44px;
+    }
+    .design2-spinner-input-icon{
+        position: absolute;
+        right: 0;
+        width: 44px;
+        top: 0;
+        height: 44px;
+        background-color: @CAL;
+        line-height: 44px;
+        text-align: center;
+        cursor: pointer;
+        svg{
+            margin: 0;
+            vertical-align: middle
+        }
+        &.disabled{
+            background-color: @CAL30
+        }
+    }
+}
+.spinner{
+    position: relative;
+    perspective: 1200px;
+    overflow: hidden;
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-around;
+    .scrollerContainer{
+        display: inline-block;
+        text-align: center;
+        width: 60px;
+        height: 190px;
+        transform-style: preserve-3d;
+        .scrollerMask{
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+        }
+        .scroller3d{
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease-out;
+            .option{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                text-align: inherit;
+                color: #999999;
+                cursor: pointer;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                backface-visibility: hidden;
+            }
+            .selected{
+                color: #464646;
+                transition: color 0.1s linear;
+            }
+        }
+    }
+    .divider{
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        border-top: 1px solid #999999;
+        border-bottom: 1px solid #999999;
+    }
+}
+.px2vw(@px,@deviceWidth){
+    @return: @px * 100vw / @deviceWidth 
+}
